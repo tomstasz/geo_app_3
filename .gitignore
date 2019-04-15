@@ -1,5 +1,24 @@
-# Byte-compiled / optimized / DLL files
+*.pyc
+*.pyo
+env/
+tags
+.idea/
+.vagrant/
+
+
+# Created by https://www.gitignore.io/api/django,python,visualstudiocode
+
+### Django ###
+*.log
+*.pot
+*.pyc
 __pycache__/
+local_settings.py
+db.sqlite3
+
+
+### Python ###
+# Byte-compiled / optimized / DLL files
 *.py[cod]
 *$py.class
 
@@ -8,6 +27,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+env/
 build/
 develop-eggs/
 dist/
@@ -23,7 +43,6 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -43,18 +62,13 @@ htmlcov/
 .cache
 nosetests.xml
 coverage.xml
-*.cover
+*,cover
 .hypothesis/
-.pytest_cache/
 
 # Translations
 *.mo
-*.pot
 
 # Django stuff:
-*.log
-local_settings.py
-db.sqlite3
 
 # Flask stuff:
 instance/
@@ -78,27 +92,25 @@ target/
 # celery beat schedule file
 celerybeat-schedule
 
-# SageMath parsed files
-*.sage.py
-
-# Environments
+# dotenv
 .env
+
+# virtualenv
 .venv
-env/
 venv/
 ENV/
-env.bak/
-venv.bak/
+
+.snack_venv
+snack_venv/
 
 # Spyder project settings
 .spyderproject
-.spyproject
 
 # Rope project settings
 .ropeproject
 
-# mkdocs documentation
-/site
+### VisualStudioCode ###
+.vscode/*
 
-# mypy
-.mypy_cache/
+
+# End of https://www.gitignore.io/api/django,python,visualstudiocode
