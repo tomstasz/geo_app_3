@@ -28,7 +28,7 @@ class LocationList(ListCreateAPIView):
                 )
                 queryset = Location.objects.filter(
                     point__distance_lte=(user_pnt, D(km=abs(int(perimeter)))))
-            except ValueError:
+            except (ValueError, TypeError):
                 print('Error, please enter numbers')
             print('queryset: ', queryset)
         elif longitude and latitude:
@@ -40,7 +40,7 @@ class LocationList(ListCreateAPIView):
                 queryset = Location.objects.annotate(
                     distance=Distance(
                         user_pnt, 'point')).order_by('distance')[:1]
-            except ValueError:
+            except (ValueError, TypeError):
                 print('Error, please enter numbers')
             print('queryset: ', queryset)
         return queryset
@@ -53,6 +53,6 @@ class LocationList(ListCreateAPIView):
             'POINT({} {})'.format(
                 longitude, latitude), srid=4326
         )
-        print('ser_data: ', serializer.validated_data)
+        print('serializer_data: ', serializer.validated_data)
         if serializer.is_valid:
             serializer.save()
