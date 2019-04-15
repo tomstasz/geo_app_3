@@ -10,4 +10,15 @@ from geo_3.serializers import LocationSerializer
 class LocationList(ListCreateAPIView):
     """Display locations or add a new one"""
     serializer_class = LocationSerializer
-    queryset = Location.objects.all()
+
+    def perform_create(self, serializer):
+        """Create a new Location object"""
+        longitude = serializer.validated_data['longitude']
+        latitude = serializer.validated_data['latitude']
+        serializer.validated_data['point'] = fromstr(
+            'POINT({} {})'.format(
+                longitude, latitude), srid=4326
+        )
+        print('ser_data: ', serializer.validated_data)
+        if serializer.is_valid:
+            serializer.save()
