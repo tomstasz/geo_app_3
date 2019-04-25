@@ -6,4 +6,4 @@ GeoDjango REST API
 
 - Add distance which suits you and receive all points of interest in a given radius.
 
-- Create your own point of interest. Enter its name and coordinates to expand our growing database.  
+- Create your own point of interest. Enter its name and coordinates and save it in our database.  
